@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ARUNACHALAM | Cyberpunk Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Unicons (Icons for GitHub/LinkedIn) -->
+  <link href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" rel="stylesheet">
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: monospace;
+      overflow-x: hidden;
+    }
+
+    h1.glow {
+      color: #9f7aea;
+      text-shadow: 0 0 10px #9f7aea, 0 0 20px #9f7aea;
+    }
+
+    .accent {
+      color: #00f5ff;
+    }
+
+    .btn-glow {
+      border: 1px solid #9f7aea;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .btn-glow:hover {
+      background-color: #9f7aea;
+      color: #000;
+    }
+
+    .skill-card, .cert-card {
+      background-color: #111;
+      border: 1px solid #9f7aea;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover, .cert-card:hover {
+      transform: scale(1.05);
+    }
+
+    .terminal-box {
+      background-color: #000;
+      color: #00ff00;
+      padding: 1rem;
+      border: 1px solid #00f5ff;
+    }
+
+    #tsparticles {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+    }
+    .navbar-brand {
+  font-weight: bold;
+  color: #00f5ff !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-family: monospace;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #9f7aea !important;
+}
+
+.text-accent {
+  color: #00f5ff;
+}
+.cert-card {
+  background-color: #111;
+  border: 1px solid #9f7aea;
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+.cert-card:hover {
+  transform: scale(1.05);
+}
+
+.btn-glow {
+  border: 1px solid #9f7aea;
+  color: white;
+  transition: 0.3s;
+  font-family: monospace;
+}
+
+.btn-glow:hover {
+  background-color: #9f7aea;
+  color: black;
+}
+.x-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.x-bg::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0 1px, transparent 2px),
+    repeating-radial-gradient(circle at 70% 50%, rgba(255, 0, 0, 0.1) 0 1px, transparent 2px),
+    repeating-radial-gradient(circle at 50% 80%, rgba(159, 122, 234, 0.15) 0 1px, transparent 2px),
+    repeating-radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.1) 0 1px, transparent 2px);
+  opacity: 0.07;
+}
+
+/* Create floating X's in multiple sizes/colors */
+.x-bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: floatX 20s linear infinite;
+  background-image:
+    "X","X","X","X","X","X","X","X","X","X";
+}
+
+@keyframes floatX {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-100px);
+  }
+}
+.x-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.x-char {
+  position: absolute;
+  font-family: monospace;
+  font-weight: bold;
+  opacity: 0.08;
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.05; transform: scale(1); }
+  100% { opacity: 0.15; transform: scale(1.2); }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <script>
+  const colors = ['#9f7aea', '#ff0000', '#ffffff', '#b19cd9']; // violet, red, white, light violet
+  const xBg = document.querySelector('.x-bg');
+
+  for (let i = 0; i < 80; i++) {
+    const x = document.createElement('div');
+    x.className = 'x-char';
+    x.textContent = 'X';
+    x.style.left = Math.random() * 100 + 'vw';
+    x.style.top = Math.random() * 100 + 'vh';
+    x.style.fontSize = (Math.random() * 2 + 0.5) + 'rem';
+    x.style.color = colors[Math.floor(Math.random() * colors.length)];
+    xBg.appendChild(x);
+  }
+</script>
+
+<div class="x-bg"></div>
+
+<!-- Particle Background -->
+<div id="tsparticles"></div>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand text-accent" href="#">ARUNACHALAM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="text-center py-5" style="background-color: #0d0d0d;">
+  <div class="container">
+    <h1 class="glow display-4">ARUNACHALAM</h1>
+    <p class="accent lead">AI, UI & UX, WEB DEVELOPMENT, CYBER SECURITY</p>
+    
+  </div>
+</section>
+
+<section id="about">
+  
+<!-- About Section -->
+<section class="container py-5">
+  <h2 class="text-center accent mb-4">About Me</h2>
+  <p class="text-center">I am a passionate developer and cybersecurity enthusiast with a focus on creating innovative digital experiences. Skilled in full-stack technologies and security-first design.</p>
+</section>
+
+</section>
+
+<section id="skills">
+      
+<!-- Skills Section -->
+<section class="container py-5">
+  <h2 class="text-center accent mb-4">Skills</h2>
+  <div class="row text-center">
+    <div class="col-md-3 mb-3">
+      <div class="skill-card p-3">
+        <h5>U/LUK Design</h5>
+        <ul class="list-unstyled small mt-2">
+          <li>Minimal UI</li>
+          <li>Wireframes</li>
+          <li>Responsive Grids</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="skill-card p-3">
+        <h5>Full-Stack Dev</h5>
+        <ul class="list-unstyled small mt-2">
+          <li>HTML/CSS/JS</li>
+          <li>Node.js, Express</li>
+          <li>MongoDB, MySQL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="skill-card p-3">
+        <h5>Cybersecurity</h5>
+        <ul class="list-unstyled small mt-2">
+          <li>Ethical Hacking</li>
+          <li>Burp Suite</li>
+          <li>OWASP Top 10</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="skill-card p-3">
+        <h5>Artificial Intelligence</h5>
+        <ul class="list-unstyled small mt-2">
+          <li>Python</li>
+          <li>Machine Learning</li>
+          <li>OpenCV</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="certifications">
+
+  <!-- Profile Section -->
+<section id="profile" class="container py-5">
+  <h2 class="text-center accent mb-4">My Online Profiles</h2>
+  <div class="row text-center">
+
+    <!-- LeetCode -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">LeetCode</h6>
+        <a href="https://leetcode.com/u/arunachalam_cyber/" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+    <!-- HackerRank -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">HackerRank</h6>
+        <a href="https://www.hackerrank.com/YOUR_USERNAME" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+    <!-- HackerOne -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://logowik.com/content/uploads/images/hackerone5828.jpg" alt="HackerOne" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">HackerOne</h6>
+        <a href="https://hackerone.com/YOUR_USERNAME" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+    <!-- TryHackMe -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://assets.tryhackme.com/img/logo/tryhackme_logo_full.svg" alt="TryHackMe" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">TryHackMe</h6>
+        <a href="https://tryhackme.com/p/arunachalam07" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+    <!-- Hack The Box -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.TVe4KwZNsO-_caKpDwn2gQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="HTB" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">Hack The Box</h6>
+        <a href="https://app.hackthebox.com/profile/overview" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+    <!-- GUVI -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://play-lh.googleusercontent.com/lAFgx9P9v6g9CGiJ4yXEghRTGikQg88xuxOg30t_licriW4ODAyXVK4NHBJj-HGILw" alt="GUVI" class="mb-2" style="width: 60px;">
+        <h6 class="mt-2">GUVI</h6>
+        <a href="https://www.guvi.in/arunachalamcyber82193" target="_blank" class="btn btn-sm btn-glow mt-2">View Profile</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        <!-- Certifications Section -->
+<section id="certifications" class="container py-5">
+  <h2 class="text-center accent mb-4">Certifications</h2>
+  <div class="row text-center">
+
+    <!-- EC-Council -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.lxNwG3WMMuUch-8RYGCmpAHaCQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="EC-Council" width="80">
+        <h6 class="mt-2">Penetration Testing & Ethical Hacking</h6>
+        <small>EC-Council · 2023</small>
+      </div>
+    </div>
+
+    <!-- GUVI -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://play-lh.googleusercontent.com/lAFgx9P9v6g9CGiJ4yXEghRTGikQg88xuxOg30t_licriW4ODAyXVK4NHBJj-HGILw" alt="GUVI" width="60">
+        <h6 class="mt-2">SQL Injection Attack</h6>
+        <small>GUVI · 2023</small>
+      </div>
+    </div>
+
+    <!-- SoloLearn - HTML/CSS -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://play-lh.googleusercontent.com/EL6k5SiLnilTUEZ7Pv8nKDSHdrTwAujkwhEhLPZKhNOzSctOEeFW0PeeMOd_fSRxbMXM" alt="SoloLearn" width="40">
+        <h6 class="mt-2">Advanced HTML/CSS</h6>
+        <small>SoloLearn · 2023</small>
+      </div>
+    </div>
+
+    <!-- SoloLearn - JS -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://play-lh.googleusercontent.com/EL6k5SiLnilTUEZ7Pv8nKDSHdrTwAujkwhEhLPZKhNOzSctOEeFW0PeeMOd_fSRxbMXM" alt="SoloLearn" width="40">
+        <h6 class="mt-2">JavaScript Programming</h6>
+        <small>SoloLearn · 2023</small>
+      </div>
+    </div>
+
+    <!-- SoloLearn - MongoDB -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.Q-PMskb7nEVQfoRyNaiddAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="SoloLearn" width="40">
+        <h6 class="mt-2">MongoDB Specialist</h6>
+        <small>MongoDB</small>
+      </div>
+    </div>
+
+    <!-- Infosys Springboard -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://play-lh.googleusercontent.com/Fjga-fnKPNPSg1_3mVis70od3LrCSvrL1lmwl2123h_RJ4DxlUjCQLym05LqDapG2Q" alt="Infosys" width="80">
+        <h6 class="mt-2">OOPS Using Python</h6>
+        <small>Infosys Springboard · 2023</small>
+      </div>
+    </div>
+
+    <!-- CDAC -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.YZ2YZrd0yTpWhejC5Nfo-QHaG6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="CDAC" width="60">
+        <h6 class="mt-2">Artificial Intelligence</h6>
+        <small>CDAC · 2023</small>
+      </div>
+    </div>
+
+    <!-- Cambridge -->
+    <div class="col-md-4 mb-3">
+      <div class="cert-card p-3">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.eEgNMZ4jz1KfQVnV_31TTwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cambridge" width="60">
+        <h6 class="mt-2">English Communication</h6>
+        <small>Cambridge · 2023</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Terminal Console -->
+<section class="container py-5">
+  <h2 class="text-center accent mb-4"> Terminal</h2>
+  <div class="terminal-box">
+    <p>> Welcome to Arunachalam's Portfolio</p>
+    <p>> Type: _</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="container py-5 text-center">
+  <h2 class="accent mb-4">Contact</h2>
+  <p>Email: <a href="mailto:youremail@example.com" class="text-info">arunachalamcyber@gmail.com</a></p>
+  <a href="https://www.linkedin.com/in/arunachalam-cyber/" class="text-light mx-2" target="_blank">
+    <i class="uil uil-linkedin-alt" style="font-size: 2rem;"></i>
+  </a>
+  <a href="https://github.com/Arunachalamcyber" class="text-light mx-2" target="_blank">
+    <i class="uil uil-github-alt" style="font-size: 2rem;"></i>
+  </a>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-3 text-muted">© 2025 Arunachalam</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Particles Setup -->
+<script>
+  tsParticles.load("tsparticles", {
+    particles: {
+      number: { value: 80 },
+      color: { value: "#00f5ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      move: { enable: true, speed: 0.6 }
+    },
+    interactivity: {
+      events: { onhover: { enable: true, mode: "repulse" } },
+      modes: { repulse: { distance: 100 } }
+    }
+  });
+</script>
+<script>
+  document.querySelectorAll('a.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 70,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
